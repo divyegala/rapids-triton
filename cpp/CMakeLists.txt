@@ -115,7 +115,7 @@ endif()
 rapids_cpm_init()
 
 if(TRITON_ENABLE_GPU)
-  include(cmake/thirdparty/get_rmm.cmake)
+  # include(cmake/thirdparty/get_rmm.cmake)
   include(cmake/thirdparty/get_raft.cmake)
 endif()
 
@@ -136,8 +136,9 @@ target_include_directories(rapids_triton INTERFACE "$<BUILD_INTERFACE:${RAPIDS_T
 
 target_link_libraries(rapids_triton
 INTERFACE
-  $<$<BOOL:${TRITON_ENABLE_GPU}>:rmm::rmm>
+  # $<$<BOOL:${TRITON_ENABLE_GPU}>:rmm::rmm>
   $<$<BOOL:${TRITON_ENABLE_GPU}>:raft::raft>
+  rapidjson::rapidjson
   triton-core-serverstub
   triton-backend-utils
 )

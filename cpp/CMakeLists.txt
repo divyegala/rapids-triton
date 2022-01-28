@@ -138,6 +138,7 @@ target_link_libraries(rapids_triton
 INTERFACE
   $<$<BOOL:${TRITON_ENABLE_GPU}>:rmm::rmm>
   $<$<BOOL:${TRITON_ENABLE_GPU}>:raft::raft>
+  rapidjson::rapidjson
   triton-core-serverstub
   triton-backend-utils
 )
